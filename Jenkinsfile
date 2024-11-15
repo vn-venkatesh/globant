@@ -44,13 +44,13 @@ pipeline {
                     sh '''
                         export PATH=$PATH:/usr/local/google-cloud-sdk/bin
                         #deploying blue
-                        kubectl apply -f /var/lib/jenkins/workspace/01/manifest/blue.yaml
+                        #kubectl apply -f /var/lib/jenkins/workspace/01/manifest/blue.yaml
                         #deploying green
-                        #kubectl apply -f /var/lib/jenkins/workspace/01/manifest/green.yaml
+                        kubectl apply -f /var/lib/jenkins/workspace/01/manifest/green.yaml
                         #patch switching to green
-                        #kubectl patch ingress my-app-ingress --type='json' -p '[{"op": "replace", "path": "/spec/rules/0/http/paths/0/backend/service/name", "value": "green-service"}]'
+                        kubectl patch ingress my-app-ingress --type='json' -p '[{"op": "replace", "path": "/spec/rules/0/http/paths/0/backend/service/name", "value": "green-service"}]'
                         #roll back to blue
-                        kubectl patch ingress my-app-ingress --type='json' -p '[{"op": "replace", "path": "/spec/rules/0/http/paths/0/backend/service/name", "value": "blue-service"}]'
+                        #kubectl patch ingress my-app-ingress --type='json' -p '[{"op": "replace", "path": "/spec/rules/0/http/paths/0/backend/service/name", "value": "blue-service"}]'
                     '''
                 }
             }
