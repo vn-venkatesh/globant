@@ -16,7 +16,7 @@ pipeline {
                 script {
                     // Authenticate using the service account key
                     sh '''
-                        export PATH=$PATH:/use/local/google-cloud-sdk/bin
+                        export PATH=$PATH:/usr/local/google-cloud-sdk/bin
                         gcloud auth activate-service-account --key-file=/usr/local/key.json
                         gcloud config set project $PROJECT_ID
                         gcloud config set compute/zone us-central1-a
@@ -30,7 +30,7 @@ pipeline {
                 script {
                     // Get credentials for GKE cluster and configure kubectl
                     sh '''
-                        export PATH=$PATH:/use/local/google-cloud-sdk/bin
+                        export PATH=$PATH:/usr/local/google-cloud-sdk/bin
                         gcloud container clusters get-credentials myprodcluster --zone us-central1-a --project globantproject-441713
                     '''
                 }
@@ -42,7 +42,7 @@ pipeline {
                 script {
                     // Deploy your Kubernetes resources (e.g., deployment, service, etc.)
                     sh '''
-                        export PATH=$PATH:/use/local/google-cloud-sdk/bin
+                        export PATH=$PATH:/usr/local/google-cloud-sdk/bin
                         kubectl apply -f blue.yaml
                     '''
                 }
