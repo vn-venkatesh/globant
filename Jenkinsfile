@@ -43,7 +43,12 @@ pipeline {
                     // Deploy your Kubernetes resources (e.g., deployment, service, etc.)
                     sh '''
                         export PATH=$PATH:/usr/local/google-cloud-sdk/bin
-                        kubectl apply -f /var/lib/jenkins/workspace/01/manifest/blue.yaml
+                        #deploying blue
+                        #kubectl apply -f /var/lib/jenkins/workspace/01/manifest/blue.yaml
+                        #deploying green
+                        kubectl apply -f /var/lib/jenkins/workspace/01/manifest/green.yaml
+                        #load switching to green
+                        #roll back
                     '''
                 }
             }
