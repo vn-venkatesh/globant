@@ -44,9 +44,9 @@ pipeline {
                     sh '''
                         export PATH=$PATH:/usr/local/google-cloud-sdk/bin
                         #deploying blue
-                        #kubectl apply -f /var/lib/jenkins/workspace/01/manifest/blue.yaml
+                        kubectl apply -f /var/lib/jenkins/workspace/01/manifest/blue.yaml
                         #deploying green
-                        kubectl apply -f /var/lib/jenkins/workspace/01/manifest/green.yaml
+                        #kubectl apply -f /var/lib/jenkins/workspace/01/manifest/green.yaml
                         #load switching to green
                         #roll back
                     '''
