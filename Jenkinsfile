@@ -48,7 +48,7 @@ pipeline {
                     // Deploy your Kubernetes resources (e.g., deployment, service, etc.)
                     sh '''
                         export PATH=$PATH:/usr/local/google-cloud-sdk/bin
-                        kubectl apply -f blue.yaml
+                        kubectl apply -f my_mainfestfiles/blue.yaml
                     '''
                 }
             }
