@@ -8,14 +8,6 @@ pipeline {
         ZONE = 'us-central1-a'                               // GKE Cluster Zone
         DEPLOYMENT_FILE = 'k8s/deployment.yaml'                  // Path to your Kubernetes manifest
     }
-
-    stages {
-        stage('Clone Repository') {
-            steps {
-                // Clones  the repository from the specified Git URL
-                git "https://github.com/vn-venkatesh/my_mainfestfiles"
-            }
-        }
         stage('Authenticate with Google Cloud') {
             steps {
                 script {
@@ -48,7 +40,7 @@ pipeline {
                     // Deploy your Kubernetes resources (e.g., deployment, service, etc.)
                     sh '''
                         export PATH=$PATH:/usr/local/google-cloud-sdk/bin
-                        kubectl apply -f my_mainfestfiles/blue.yaml
+                        kubectl apply -f blue.yaml
                     '''
                 }
             }
