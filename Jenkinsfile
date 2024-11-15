@@ -13,7 +13,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 // Clones the repository from the specified Git URL
-                git clone https://github.com/vn-venkatesh/globant
+                git "https://github.com/vn-venkatesh/globant"
             }
         }
         stage('Authenticate with Google Cloud') {
