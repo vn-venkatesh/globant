@@ -7,7 +7,7 @@ pipeline {
         PROJECT_ID = 'globantproject-441713'                       // Your GCP Project ID
         CLUSTER_NAME = 'myprodcluster'                       // Your GKE Cluster Name
         ZONE = 'us-central1-a'                               // GKE Cluster Zone
-        DEPLOYMENT_FILE = 'k8s/deployment.yaml'                  // Path to your Kubernetes manifest
+        DEPLOYMENT_FILE = 'k8s/deployment.yaml'                 // Path to your Kubernetes manifest
     }
 
     stages {
