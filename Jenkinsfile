@@ -10,6 +10,14 @@ pipeline {
     }
 
     stages {
+        stage('Clone GitHub Repo') {
+            steps {
+                script {
+                    git url: 'https://github.com/vn-venkatesh/my_mainfestfiles.git', branch: 'main'
+                }
+            }
+        }
+        
         stage('Authenticate with Google Cloud') {
             steps {
                 script {
