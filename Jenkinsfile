@@ -45,6 +45,8 @@ pipeline {
                         export PATH=$PATH:/usr/local/google-cloud-sdk/bin
                         #deploying blue
                         #kubectl apply -f /var/lib/jenkins/workspace/01/manifest/blue.yaml
+                        #deploying ingress
+                        #kubectl apply -f /var/lib/jenkins/workspace/01/manifest/ingress.yaml
                         #deploying green
                         #kubectl apply -f /var/lib/jenkins/workspace/01/manifest/green.yaml
                         #patch switching to green
