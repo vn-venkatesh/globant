@@ -3,10 +3,10 @@ pipeline {
 
     environment {
         // Define environment variables
-        PROJECT_ID = 'globantproject-441713'                     // Your GCP Project ID
-        CLUSTER_NAME = 'myprodcluster'                           // Your GKE Cluster Name
-        ZONE = 'us-central1-a'                                   // GKE Cluster Zone
-        DEPLOYMENT_FILE = 'k8s/deployment.yaml'                  // Path to your Kubernetes manifest
+        GOOGLE_APPLICATION_CREDENTIALS = credentials('GOOGLE_APPLICATION_CREDENTIALS')
+        PROJECT_ID = 'globantproject-441713'                     //GCP Project ID
+        CLUSTER_NAME = 'myprodcluster'                           //GKE Cluster Name
+        ZONE = 'us-central1-a'                                   //Cluster Zone
     }
 
     stages {
@@ -24,7 +24,7 @@ pipeline {
                     // Authenticate using the service account key
                     sh '''
                         export PATH=$PATH:/usr/local/google-cloud-sdk/bin
-                        gcloud auth activate-service-account --key-file=/usr/local/key.json
+                        gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
                         gcloud config set project $PROJECT_ID
                         gcloud config set compute/zone $ZONE
                     '''
